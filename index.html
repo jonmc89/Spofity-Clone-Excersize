@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify Clone</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Flow+Circular&family=Jersey+20&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/d4691f768e.js"
       crossorigin="anonymous"
@@ -12,41 +18,54 @@
   </head>
   <body>
     <header>
-      <i class="fa-brands fa-spotify"></i>
-      <div>
-        <div>
-          <i class="fa-solid fa-house"></i>
-          <div>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="What do you want to play?" />
-            <i class="fa-solid fa-folder"></i>
+      <div class="header__one">
+        <a class="spotify__icon" href="#"
+          ><i class="fa-brands fa-spotify"></i
+        ></a>
+        <div class="header__search">
+          <div class="home__button">
+            <i class="fa-solid fa-house house__icon"></i>
+          </div>
+          <div id="searchBox" class="search__box">
+            <i
+              id="searchIcon"
+              class="fa-solid fa-magnifying-glass search__icon"
+            ></i>
+            <input
+              id="searchInput"
+              class="search__input"
+              type="text"
+              placeholder="What do you want to play?"
+            />
+            <hr class="search__hr" />
+            <a class="folder__button" href="#"
+              ><i id="folderIcon" class="fa-solid fa-folder"></i
+            ></a>
           </div>
         </div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#">Premium</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">Download</a></li>
-        </ul>
-      </nav>
-      <hr />
-      <div>
+      <div class="header__two">
         <nav>
           <ul>
-            <li>
-              <div>
-                <i class="fa-regular fa-circle-down"></i>
-                <a href="#">Install App</a>
-              </div>
-            </li>
-            <li>
-              <a href="#">Sign Up</a>
-            </li>
-            <li><button>Log In</button></li>
+            <li><a class="links" href="#">Premium</a></li>
+            <li><a class="links" href="#">Support</a></li>
+            <li><a class="links" href="#">Download</a></li>
           </ul>
         </nav>
+        <hr class="nav__hr" />
+        <nav>
+          <ul>
+            <li class="links__2">
+              <a href="#"
+                ><i class="fa-regular fa-circle-down"></i> Install App</a
+              >
+            </li>
+            <li class="links__2"><a href="#">Sign Up</a></li>
+          </ul>
+        </nav>
+        <button>Log in</button>
       </div>
     </header>
+    <script src="script.js"></script>
   </body>
 </html>
