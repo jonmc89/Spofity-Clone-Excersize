@@ -5,6 +5,11 @@
   font-family: "Circular", sans-serif;
 }
 
+body {
+  background-color: #000;
+  overflow-x: hidden;
+}
+
 /* Header */
 
 header {
@@ -13,7 +18,7 @@ header {
   align-items: center;
   color: #fff;
   background-color: #000;
-  padding: 35px 10px;
+  padding: 25px 10px;
   height: 60px;
   width: 100%;
 }
@@ -43,6 +48,11 @@ header {
   transform: scale(1.1);
 }
 
+.home__button:active {
+  transform: scale(1);
+  opacity: 0.8;
+}
+
 .house__icon {
   font-size: 1.5em;
   color: #c5c3c3;
@@ -55,14 +65,16 @@ header {
 }
 
 .search__box {
-  padding: 8px 15px;
+  padding: 8px 20px;
+  margin: 0 10px;
   background-color: #373737;
   border-radius: 25px;
   display: flex;
   align-items: center;
   height: 40px;
-  width: 400px;
-  transition: background-color 0.1s ease-in-out;
+  width: 100%;
+  min-width: 100px;
+  transition: background-color 0.1s ease-in-out, width 0.3s ease-in-out;
   box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0);
 }
 
@@ -71,13 +83,19 @@ header {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.176);
 }
 
+#searchBox {
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
 .search__input {
-  width: 410px;
+  width: 90%;
   font-size: 1.1em;
   border-color: #37373700;
   background: transparent;
   border: none;
   color: #fff;
+  transition: width 0.3s ease-in-out;
 }
 
 .search__input:focus {
@@ -98,11 +116,12 @@ header {
   border-color: #c5c3c3;
   width: 25px;
   transform: rotate(90deg);
+  min-width: 25px;
 }
 
 .folder__button {
   font-size: 1.2em;
-  color: #fff;
+  color: #c5c3c3;
   transition: color 0.1s ease-in-out;
 }
 
@@ -119,7 +138,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 40%;
 }
 
 /* Links */
@@ -128,7 +146,6 @@ ul {
   list-style: none;
   display: flex;
   gap: 8px;
-  margin-right: -10px;
 }
 
 a {
@@ -137,7 +154,7 @@ a {
 }
 
 .links {
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-weight: 600;
   letter-spacing: 1.2px;
   display: block;
@@ -150,7 +167,7 @@ a {
 }
 
 .links:active {
-  color: #8f8f8f;
+  opacity: 0.5;
   transform: scale(1);
 }
 
@@ -176,8 +193,59 @@ a {
 }
 
 .links__2:active {
-  color: #8f8f8f;
+  opacity: 0.6;
   transform: scale(1);
+}
+
+/* Side Menu */
+
+.side__menu {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+  top: 0;
+  left: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-size: 1.2em;
+  transition: left 0.25s ease-in-out;
+}
+
+.side__menu__x {
+  text-align: right;
+  font-size: 1.3em;
+}
+
+.side__menu__nav__1 {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  font-size: 1.1em;
+}
+
+.side__menu__nav__1 li {
+  margin-bottom: 10px;
+}
+
+.side__menu__hr {
+  width: 20px;
+  margin-bottom: 20px;
+}
+
+.side__menu__nav__2 {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.side__menu__nav__2 li {
+  margin-bottom: 10px;
 }
 
 /* Log in Button */
@@ -188,9 +256,16 @@ button {
   height: 50px;
   border-radius: 25px;
   margin-left: 10px;
+  margin-right: 10px;
   font-weight: bold;
   font-size: 0.9em;
   transition: transform 0.1s ease-in-out;
+}
+
+.menu {
+  display: none;
+  padding: 0 10px;
+  font-size: 1.2em;
 }
 
 button:hover {
@@ -200,4 +275,115 @@ button:hover {
 button:active {
   transform: scale(1);
   background-color: #8f8f8f;
+}
+
+.open__app__btn {
+  display: none;
+  padding: 0 10px;
+}
+
+.search__icon__2 {
+  display: none;
+}
+
+.nav__3 {
+  min-width: 200px;
+  max-width: 200px;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 1245px) {
+  .home__button {
+    display: none;
+  }
+
+  .home__button {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .search__box {
+    width: 50%;
+    min-width: 110px;
+  }
+
+  .search__input {
+    width: 0%;
+  }
+}
+
+@media screen and (max-width: 883px) {
+  .nav__2 {
+    display: none;
+  }
+
+  .search__box {
+    width: 100%;
+  }
+
+  .search__input {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  header {
+    width: 100%;
+  }
+
+  .header__two {
+    margin-left: -55px;
+  }
+
+  .search__box {
+    display: none;
+  }
+
+  .search__icon__2 {
+    display: block;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  hr {
+    display: none;
+  }
+
+  ul {
+    display: none;
+  }
+
+  .login__btn {
+    display: none;
+  }
+
+  .open__app__btn {
+    display: block;
+  }
+
+  .home__button {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .header__two {
+    margin-left: -100px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .header__two {
+    margin-left: -100px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header__two {
+    margin-left: -130px;
+  }
 }
